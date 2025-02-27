@@ -1,7 +1,8 @@
 #!/bin/bash
 mkdir -p logs
 
-NGINX_CONF="/home/ubuntu/code/nginx_learn_code/01_simple/nginx.conf"
+NGINX_DIR=$(pwd)
+NGINX_CONF="$NGINX_DIR/nginx.conf"
 
 # 定义清理函数
 cleanup() {
@@ -28,7 +29,7 @@ start_nginx() {
 # 停止 nginx 函数
 stop_nginx() {
     echo "正在停止 nginx..."
-    sudo nginx -s stop
+    sudo nginx -c "$NGINX_CONF" -s stop
     if [ $? -eq 0 ]; then
         echo "nginx 停止成功"
     else
@@ -40,7 +41,7 @@ stop_nginx() {
 # 重载 nginx 函数
 reload_nginx() {
     echo "正在重载 nginx 配置..."
-    sudo nginx -s reload
+    sudo nginx -c "$NGINX_CONF" -s reload
     if [ $? -eq 0 ]; then
         echo "nginx 重载成功"
     else
