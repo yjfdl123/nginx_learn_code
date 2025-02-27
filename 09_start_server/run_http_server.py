@@ -20,7 +20,7 @@ def read_root():
 
 @app.get("/test")
 def test():
-    return {"status": "ok", "port": 8442}
+    return {"status": "ok", "port": 8443}
 
 @app.get("/info/{name}")
 def get_info(name: str):
