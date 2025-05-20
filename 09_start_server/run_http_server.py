@@ -33,8 +33,8 @@ def get_info(name: str):
 if __name__ == "__main__":
     # 创建命令行参数解析器
     parser = argparse.ArgumentParser(description='启动HTTP服务器')
-    parser.add_argument('-p', '--port', type=int, default=8442,
-                      help='指定服务器端口号（默认：8442）')
+    parser.add_argument('-p', '--port', type=int, default=9400,
+                      help='指定服务器端口号（默认：9400）')
     
     # 解析命令行参数
     args = parser.parse_args()
